@@ -20,7 +20,7 @@ public class ConnectToSSE {
     private static final String PORT_SSE = "8080";
     private static final String PATH = "/test/rest/events/subscribe";
 
-    @Path("startthread")
+    @Path("connect")
     @GET
     public Response connectToSseServeurAndLogs() throws InterruptedException {
 
@@ -47,7 +47,7 @@ public class ConnectToSSE {
         return Response.ok("Event => OK").build();
     }
 
-    @Path("connect")
+    @Path("connect-broadcast")
     @GET
     public Response connect2() {
 

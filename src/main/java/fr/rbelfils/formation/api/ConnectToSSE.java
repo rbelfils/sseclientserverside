@@ -31,7 +31,7 @@ public class ConnectToSSE {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target(url);
         try {
-            SseEventSource source = SseEventSource.target(target).build();
+            SseEventSource source = SseEventSource.target(target).reconnectingEvery(5,TimeUnit.SECONDS).build();
             source.register((sseEvent)
                             -> {
                         System.out.println("EVENT : " + sseEvent.readData());
